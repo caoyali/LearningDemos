@@ -12,6 +12,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 看代码的时候，创建思路按着下方顺序看。这里面相关注释，会使人更容易理解这个框架！
+ * {@link yayali.example.roomwordsample.Data.Word}
+ * --> {@link yayali.example.roomwordsample.Data.WordDao}
+ * --> {@link yayali.example.roomwordsample.Data.WordRoomDatabase}
+ * -->{@link yayali.example.roomwordsample.Repositroy.WordReporsitroy}
+ * -->
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
