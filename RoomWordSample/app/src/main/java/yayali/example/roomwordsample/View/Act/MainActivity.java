@@ -1,4 +1,4 @@
-package yayali.example.roomwordsample;
+package yayali.example.roomwordsample.View.Act;
 
 import android.os.Bundle;
 
@@ -7,10 +7,15 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import yayali.example.roomwordsample.R;
+import yayali.example.roomwordsample.View.Adapter.WordListAdapter;
 
 /**
  * 看代码的时候，创建思路按着下方顺序看。这里面相关注释，会使人更容易理解这个框架！
@@ -37,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final WordListAdapter adapter = new WordListAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
