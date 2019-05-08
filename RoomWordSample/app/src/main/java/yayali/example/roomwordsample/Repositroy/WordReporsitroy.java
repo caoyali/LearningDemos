@@ -23,13 +23,14 @@ public class WordReporsitroy {
     private LiveData<List<Word>> mAllWords;
 
     public WordReporsitroy(Context context) {
-        //初始化最初的数据，如 你操作数据库必须用到的mWordDao
 
+        //初始化最初的数据，如 你操作数据库必须用到的mWordDao
         WordRoomDatabase wdb = WordRoomDatabase.getDataBase(context);
         //wordDao这个方法，自有框架帮你实现。这个不用管了。
         mWordDao = wdb.wordDao();
         //初始化另外一个数据
         //其实当执行完这一步的时候，就很明显的改了mAllWords的值。那些观察这个值的观察者们，就会自动触发对应的方法！
+        //并且这里的被观察对象，不难看出，从始至终，都是Room在维护的。
         mAllWords = mWordDao.getAllWords();
     }
 

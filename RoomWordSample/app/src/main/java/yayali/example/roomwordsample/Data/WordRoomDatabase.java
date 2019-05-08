@@ -14,7 +14,8 @@ public abstract class WordRoomDatabase extends RoomDatabase {
 
     private static volatile WordRoomDatabase INSTANCE;
 
-    //耗时耗时！！
+    //数据库的创建是可以在主线程中做的。
+    //但是但是，它的增删查改，必须在子线程里面完成
     public static WordRoomDatabase getDataBase(Context context){
         if (null == INSTANCE){
             synchronized (WordRoomDatabase.class){
@@ -34,7 +35,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     //在数据库创建完之后先插入一些默认数据
     private static RoomDatabase.Callback sRoomDatabaseCallBack = new RoomDatabase.Callback(){
         @Override
-        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
             new PopulateDbAsync(INSTANCE).execute();
         }

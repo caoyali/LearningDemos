@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewWordActivity"></activity>
+        <activity android:name=".View.Act.NewWordActivity"></activity>
     </application>
 
 </manifest>
